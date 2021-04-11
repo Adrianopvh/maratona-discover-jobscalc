@@ -2,8 +2,10 @@ const express = require("express");
 
 const server = express();
 
+server.use(express.static("public"));
+
 server.get('/', (request, response) => {
-    return response.send('Oi')
+    return response.sendFile(__dirname + "/views/index.html")
 });
 
 server.listen(3333, () => console.log('Running'));
